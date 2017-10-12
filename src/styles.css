@@ -1,0 +1,25 @@
+
+/* Site wide style */
+body
+{
+    background-color: #90CAF9;
+}
+
+.headerBar
+{
+    background-color:white;
+    box-shadow: 0px 4px 2px rgba(125, 125, 125, 0.3);
+}
+
+/* Content Styles */
+
+.SharedWeatherCard
+{
+    text-align: center;
+    background-color:white;
+    box-shadow: 6px 6px 10px rgba(125, 125, 125, 0.3);
+    margin-top:25px;
+    padding: 25px;
+    border-radius: 3px;
+}
+
