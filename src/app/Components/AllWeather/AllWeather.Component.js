@@ -19,18 +19,24 @@ var AllWeatherComponent = (function () {
         this.weather = [];
     }
     AllWeatherComponent.prototype.ngOnInit = function () {
-        var _this = this;
         // Make the HTTP request:
+        this.getWeatherData();
+    };
+    AllWeatherComponent.prototype.getWeatherData = function () {
+        var _this = this;
         // Stand in value until location entry added
-        var localCities = 'Brisbane,Aus|Sydney,Aus';
+        localStorage.setItem('myLocations', 'Brisbane,Aus|Sydney,Aus');
+        var localCities = localStorage.getItem('myLocations');
         var cities = localCities.split('|');
-        cities.forEach(function (city) {
-            _this.http.get('http://api.openweathermap.org/data/2.5/weather?q=Brisbane&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
-                // Read the result field from the JSON response.
-                _this.weather.push(new Weather_1.Weather(data));
-                console.log(_this.weather[0]);
+        var _loop_1 = function (i) {
+            this_1.http.get('http://api.openweathermap.org/data/2.5/weather?q=' + cities[i] + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
+                _this.weather.push(new Weather_1.Weather(data, i));
             });
-        });
+        };
+        var this_1 = this;
+        for (var i = 0; i < cities.length; i++) {
+            _loop_1(i);
+        }
     };
     return AllWeatherComponent;
 }());

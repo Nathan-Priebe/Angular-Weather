@@ -15,15 +15,20 @@ export class AllWeatherComponent implements OnInit {
 
     ngOnInit(): void {
       // Make the HTTP request:
+      this.getWeatherData();
+    }
+
+    getWeatherData(): void {
       // Stand in value until location entry added
-      const localCities = 'Brisbane,Aus|Sydney,Aus';
+      localStorage.setItem('myLocations', 'Brisbane,Aus|Sydney,Aus');
+      const localCities = localStorage.getItem('myLocations');
       const cities: string[] = localCities.split('|');
-      cities.forEach(city => {
+      for (let i = 0; i < cities.length; i++) {
         this.http.get(
-          'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953'
+          'http://api.openweathermap.org/data/2.5/weather?q=' + cities[i] + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953'
         ).subscribe(data => {
-          this.weather.push(new Weather(data));
+          this.weather.push(new Weather(data, i));
         });
-      });
+      }
     }
 }

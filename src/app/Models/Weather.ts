@@ -10,13 +10,14 @@ export class Weather {
     temp_max: number;
     weather: string;
     desc: string;
+    arrayPos: number;
 
     /**
      * constructor
      * @param title
      * @param pages
      */
-    constructor(obj: object) {
+    constructor(obj: object, arrayPosition: number) {
        this.temp = Math.round(obj['main']['temp']);
        this.pressure = Math.round(obj['main']['pressure']);
        this.humidity = Math.round(obj['main']['humidity']);
@@ -25,5 +26,6 @@ export class Weather {
        this.weather = obj['weather'][0]['main'];
        this.desc = obj['weather'][0]['description'];
        this.name = obj['name'];
+       this.arrayPos = arrayPosition;
     }
 }
