@@ -1,0 +1,35 @@
+<div class='col-md-12 SharedWeatherCard' *ngFor='let w of weather'>
+    <div class='col-md-12' style='text-align:left; padding-left: 30px;'>
+        <h3>{{w.name}}</h3>
+    </div>
+    <div class='col-md-3'>
+        <div class='col-md-12'>
+            <h4 class='weatherHeader'>{{w.weather}}</h4>
+        </div>
+        <div class='col-md-12'>
+            <i class="fa fa-cloud fa-5x" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <div class='col-md-12 '>
+            <h4>Temperature</h4>
+        </div>
+        <div class='col-md-12'>
+            <i class="fa fa-thermometer-half" aria-hidden="true"></i> {{w.temp}}
+        </div>
+        <div class='col-md-6'>
+            <i class="fa fa-arrow-down" aria-hidden="true"></i> {{w.temp_min}}
+        </div>
+        <div class='col-md-6'>
+            <i class="fa fa-arrow-up" aria-hidden="true"></i> {{w.temp_max}}
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <h4>Pressure</h4>
+        <b>H/L</b> {{w.pressure}}
+    </div>
+    <div class='col-md-3'>
+        <h4>Humidity</h4>
+        <i class="fa fa-tint" aria-hidden="true"></i> {{w.humidity}}
+    </div>
+</div>

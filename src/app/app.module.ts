@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { AllWeatherComponent } from './AllWeather.Component';
+import { AllWeatherComponent } from './Components/AllWeather/AllWeather.Component';
 
 @NgModule({
   declarations: [

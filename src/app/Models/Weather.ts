@@ -2,6 +2,7 @@
  * weather model
  */
 export class Weather {
+    name: string;
     temp: number;
     pressure: number;
     humidity: number;
@@ -16,12 +17,13 @@ export class Weather {
      * @param pages
      */
     constructor(obj: object) {
-       this.temp = obj['main']['temp'];
-       this.pressure = obj['main']['pressure'];
-       this.humidity = obj['main']['humidity'];
-       this.temp_min = obj['main']['temp_min'];
-       this.temp_max = obj['main']['temp_max'];
+       this.temp = Math.round(obj['main']['temp']);
+       this.pressure = Math.round(obj['main']['pressure']);
+       this.humidity = Math.round(obj['main']['humidity']);
+       this.temp_min = Math.round(obj['main']['temp_min']);
+       this.temp_max = Math.round(obj['main']['temp_max']);
        this.weather = obj['weather'][0]['main'];
        this.desc = obj['weather'][0]['description'];
+       this.name = obj['name'];
     }
 }

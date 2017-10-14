@@ -8,7 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
-var app_component_1 = require("./app.component");
+var http_1 = require("@angular/common/http");
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+var AllWeather_Component_1 = require("./Components/AllWeather/AllWeather.Component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -17,13 +19,15 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         declarations: [
-            app_component_1.AppComponent
+            AllWeather_Component_1.AllWeatherComponent
         ],
         imports: [
-            platform_browser_1.BrowserModule
+            platform_browser_1.BrowserModule,
+            http_1.HttpClientModule,
+            ng_bootstrap_1.NgbModule
         ],
         providers: [],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [AllWeather_Component_1.AllWeatherComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;
