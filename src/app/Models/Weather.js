@@ -4,11 +4,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 * weather model
 */
 var Weather = (function () {
-    /**
-     * constructor
-     * @param title
-     * @param pages
-     */
     function Weather(obj, arrayPosition) {
         this.temp = Math.round(obj['main']['temp']);
         this.pressure = Math.round(obj['main']['pressure']);

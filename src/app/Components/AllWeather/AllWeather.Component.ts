@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Weather } from '../../Models/Weather';
 
 @Component({
-    selector: 'app-root',
     templateUrl: 'AllWeather.html'
 })
 

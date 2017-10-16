@@ -12,39 +12,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 var Weather_1 = require("../../Models/Weather");
-var AllWeatherComponent = (function () {
+var WeatherDetailsComponent = (function () {
     // Inject HttpClient into your component or service.
-    function AllWeatherComponent(http) {
+    function WeatherDetailsComponent(http) {
         this.http = http;
-        this.weather = [];
     }
-    AllWeatherComponent.prototype.ngOnInit = function () {
-        // Make the HTTP request:
-        this.getWeatherData();
-    };
-    AllWeatherComponent.prototype.getWeatherData = function () {
+    WeatherDetailsComponent.prototype.getWeatherData = function (city) {
         var _this = this;
         // Stand in value until location entry added
-        localStorage.setItem('myLocations', 'Brisbane,Aus|Sydney,Aus');
-        var localCities = localStorage.getItem('myLocations');
-        var cities = localCities.split('|');
-        var _loop_1 = function (i) {
-            this_1.http.get('http://api.openweathermap.org/data/2.5/weather?q=' + cities[i] + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
-                _this.weather.push(new Weather_1.Weather(data, i));
-            });
-        };
-        var this_1 = this;
-        for (var i = 0; i < cities.length; i++) {
-            _loop_1(i);
-        }
+        this.http.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
+            _this.weatherDetails = new Weather_1.Weather(data);
+        });
     };
-    return AllWeatherComponent;
+    return WeatherDetailsComponent;
 }());
-AllWeatherComponent = __decorate([
+WeatherDetailsComponent = __decorate([
     core_1.Component({
-        templateUrl: 'AllWeather.html'
+        templateUrl: 'WeatherDetails.html'
     }),
     __metadata("design:paramtypes", [http_1.HttpClient])
-], AllWeatherComponent);
-exports.AllWeatherComponent = AllWeatherComponent;
-//# sourceMappingURL=AllWeather.Component.js.map
+], WeatherDetailsComponent);
+exports.WeatherDetailsComponent = WeatherDetailsComponent;
+//# sourceMappingURL=WeatherDetails.Component.js.map

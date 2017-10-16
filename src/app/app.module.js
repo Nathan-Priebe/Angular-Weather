@@ -10,7 +10,9 @@ var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+var router_1 = require("@angular/router");
 var AllWeather_Component_1 = require("./Components/AllWeather/AllWeather.Component");
+var WeatherDetails_Component_1 = require("./Components/WeatherDetails/WeatherDetails.Component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -19,12 +21,18 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         declarations: [
-            AllWeather_Component_1.AllWeatherComponent
+            AllWeather_Component_1.AllWeatherComponent,
+            WeatherDetails_Component_1.WeatherDetailsComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,
             http_1.HttpClientModule,
-            ng_bootstrap_1.NgbModule
+            ng_bootstrap_1.NgbModule,
+            router_1.RouterModule.forRoot([
+                { path: 'Details', component: WeatherDetails_Component_1.WeatherDetailsComponent },
+                { path: 'MyWeather', component: AllWeather_Component_1.AllWeatherComponent },
+                { path: '', component: AllWeather_Component_1.AllWeatherComponent }
+            ], { useHash: true })
         ],
         providers: [],
         bootstrap: [AllWeather_Component_1.AllWeatherComponent]
