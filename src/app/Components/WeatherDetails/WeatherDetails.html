@@ -1,1 +1,43 @@
-asdfa
+<div class='col-md-12 ForecastHeaderCard'>
+    <div class='BackToAllWeather'>
+        <i class='fa fa-arrow-left' aria-hidden='true'></i> <a [routerLink]="['/']">Back to all weather</a>
+    </div>
+    <div class='col-md-12'>
+        <h3 class='ForecastTitle'>{{forecast.name}}</h3>
+    </div>
+</div>
+<div class='col-md-12 SharedWeatherCard' *ngFor='let f of forecast.details'>
+    <div class='col-md-12' style='text-align:center; padding-left: 30px;'>
+        <h4>{{f.date}}</h4>
+    </div>
+    <div class='col-md-3'>
+        <div class='col-md-12'>
+            <h4 class='weatherHeader'>{{f.weather}}</h4>
+        </div>
+        <div class='col-md-12'>
+            <i class='fa fa-cloud fa-5x' aria-hidden='true'></i>
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <div class='col-md-12 '>
+            <h4>Temperature</h4>
+        </div>
+        <div class='col-md-12'>
+            <i class='fa fa-thermometer-half' aria-hidden='true'></i> {{f.temp}}
+        </div>
+        <div class='col-md-6'>
+            <i class='fa fa-arrow-down' aria-hidden='true'></i> {{f.temp_min}}
+        </div>
+        <div class='col-md-6'>
+            <i class='fa fa-arrow-up' aria-hidden='true'></i> {{f.temp_max}}
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <h4>Pressure</h4>
+        <b>H/L</b> {{f.pressure}}
+    </div>
+    <div class='col-md-3'>
+        <h4>Humidity</h4>
+        <i class='fa fa-tint' aria-hidden='true'></i> {{f.humidity}}
+    </div>
+</div>

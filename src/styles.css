@@ -30,8 +30,36 @@ body
     border-radius: 3px;
 }
 
+.ForecastHeaderCard
+{
+    background-color:white;
+    box-shadow: 6px 6px 10px rgba(125, 125, 125, 0.3);
+    margin-top:25px;
+    border-radius: 3px;
+}
+
+.ForecastTitle
+{
+    text-align: center;
+    margin-top: 10px !important;
+}
+
 .weatherHeader
 {
     margin: 0px, 0px, 5px, 0px;
+}
+
+.BackToAllWeather
+{
+    float:left;
+    padding-top: 13px;
+    position: absolute;
+    z-index: 10;
+}
+
+.futureWeatherForecast
+{
+    padding-top: 20px;
+    text-align: right;
 }
 

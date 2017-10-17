@@ -20,6 +20,7 @@ import { WeatherDetailsComponent } from './Components/WeatherDetails/WeatherDeta
     NgbModule,
     RouterModule.forRoot([
       { path: 'Details', component: WeatherDetailsComponent },
+      { path: 'Details/:name', component: WeatherDetailsComponent },
       { path: 'MyWeather', component: AllWeatherComponent },
       { path: '', component: AllWeatherComponent }
     ])

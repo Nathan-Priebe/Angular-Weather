@@ -7,17 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var WeatherDetailsComponent = (function () {
-    function WeatherDetailsComponent() {
+var AppComponent = (function () {
+    function AppComponent() {
         this.pageTitle = 'My Weather';
     }
-    return WeatherDetailsComponent;
+    return AppComponent;
 }());
-WeatherDetailsComponent = __decorate([
+AppComponent = __decorate([
     core_1.Component({
         selector: 'app-root',
-        templateUrl: "<div><router-outlet></router-outlet></div>"
+        template: "<div><router-outlet></router-outlet></div>"
     })
-], WeatherDetailsComponent);
-exports.WeatherDetailsComponent = WeatherDetailsComponent;
+], AppComponent);
+exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.Component.js.map

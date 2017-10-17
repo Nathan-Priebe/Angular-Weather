@@ -3,6 +3,7 @@
  */
 export class Weather {
     name: string;
+    id: number;
     temp: number;
     pressure: number;
     humidity: number;
@@ -22,5 +23,6 @@ export class Weather {
        this.desc = obj['weather'][0]['description'];
        this.name = obj['name'];
        this.arrayPos = arrayPosition;
+       this.id = obj['id'];
     }
 }

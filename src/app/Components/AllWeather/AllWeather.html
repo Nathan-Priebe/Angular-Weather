@@ -1,7 +1,6 @@
 <div class='col-md-12 SharedWeatherCard' *ngFor='let w of weather'>
     <div class='col-md-11' style='text-align:left; padding-left: 30px;'>
         <h3>{{w.name}}</h3>
-        <a [routerLink]="['/Details']">More info</a>
     </div>
     <div class='col-md-1'>
         <button id='closeButton' type="button" class="btn btn-outline-dark closeButton"><i id={{w.arrayPos}} class='fa fa-times fa-1x' aria-hidden='true'></i></button>
@@ -36,7 +35,11 @@
         <h4>Humidity</h4>
         <i class='fa fa-tint' aria-hidden='true'></i> {{w.humidity}}
     </div>
+    <div class='col-md-12 futureWeatherForecast'>
+        <a [routerLink]="['/Details', w.id]">Future weather forecast</a> 
+    </div>
 </div>
+
 <div *ngIf='weather.length <= 0' class='col-md-12 SharedWeatherCard'>
     Add locations to view the weather, <a href>Click here to add locations</a>
 </div>

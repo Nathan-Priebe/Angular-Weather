@@ -11,17 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var Weather_1 = require("../../Models/Weather");
+var WeatherDetails_1 = require("../../Models/WeatherDetails");
+var router_1 = require("@angular/router");
 var WeatherDetailsComponent = (function () {
     // Inject HttpClient into your component or service.
-    function WeatherDetailsComponent(http) {
+    function WeatherDetailsComponent(http, _route) {
         this.http = http;
+        this._route = _route;
     }
+    WeatherDetailsComponent.prototype.ngOnInit = function () {
+        var city = this._route.snapshot.paramMap.get('name');
+        this.getWeatherData(city);
+    };
     WeatherDetailsComponent.prototype.getWeatherData = function (city) {
         var _this = this;
         // Stand in value until location entry added
-        this.http.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
-            _this.weatherDetails = new Weather_1.Weather(data);
+        this.http.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
+            _this.forecast = new WeatherDetails_1.Forecast(data);
         });
     };
     return WeatherDetailsComponent;
@@ -30,7 +36,7 @@ WeatherDetailsComponent = __decorate([
     core_1.Component({
         templateUrl: 'WeatherDetails.html'
     }),
-    __metadata("design:paramtypes", [http_1.HttpClient])
+    __metadata("design:paramtypes", [http_1.HttpClient, router_1.ActivatedRoute])
 ], WeatherDetailsComponent);
 exports.WeatherDetailsComponent = WeatherDetailsComponent;
 //# sourceMappingURL=WeatherDetails.Component.js.map
