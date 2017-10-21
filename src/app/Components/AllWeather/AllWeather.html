@@ -3,14 +3,14 @@
         <h3>{{w.name}}</h3>
     </div>
     <div class='col-md-1'>
-        <button id='closeButton' type="button" class="btn btn-outline-dark closeButton"><i id={{w.arrayPos}} class='fa fa-times fa-1x' aria-hidden='true'></i></button>
+        <button id='closeButton' type="button" class="btn btn-outline-dark closeButton" (click)="removeItem(w.arrayPos);"><i class='fa fa-times fa-1x' aria-hidden='true'></i></button>
     </div>
     <div class='col-md-3'>
         <div class='col-md-12'>
             <h4 class='weatherHeader'>{{w.weather}}</h4>
         </div>
         <div class='col-md-12'>
-            <i class='fa fa-cloud fa-5x' aria-hidden='true'></i>
+            <i class="fa fa-5x {{w.icon}}" aria-hidden='true'></i>
         </div>
     </div>
     <div class='col-md-3'>

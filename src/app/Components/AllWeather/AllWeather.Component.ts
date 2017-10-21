@@ -30,4 +30,20 @@ export class AllWeatherComponent implements OnInit {
         });
       }
     }
+
+    public removeItem(arrayPos: number): void {
+      const localCities = localStorage.getItem('myLocations');
+      const cities: string[] = localCities.split('|');
+      cities.splice(arrayPos, 1);
+      let outputString = '';
+      for (let i = 0; i < cities.length; i++) {
+        if (i === cities.length - 1) {
+          outputString = outputString + cities[i];
+        } else {
+          outputString = outputString + cities[i] + '|';
+        }
+      }
+      localStorage.setItem('myLocations', outputString);
+      window.location.reload();
+    }
 }
