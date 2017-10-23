@@ -17,7 +17,7 @@ import { WeatherDetailsComponent } from './Components/WeatherDetails/WeatherDeta
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: 'Details', component: WeatherDetailsComponent },
       { path: 'Details/:name', component: WeatherDetailsComponent },

@@ -9,14 +9,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
-        this.pageTitle = 'My Weather';
     }
+    AppComponent.prototype.addCity = function () {
+        this.modalService.open(id);
+    };
+    AppComponent.prototype.closeModal = function (id) {
+        this.modalService.close(id);
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'app-root',
-        template: "<div><router-outlet></router-outlet></div>"
+        templateUrl: 'Master.html'
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

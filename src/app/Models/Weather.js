@@ -14,6 +14,25 @@ var Weather = (function () {
         this.desc = obj['weather'][0]['description'];
         this.name = obj['name'];
         this.arrayPos = arrayPosition;
+        this.id = obj['id'];
+        if (this.weather === 'Clouds') {
+            this.icon = 'fa-cloud';
+        }
+        else if (this.weather === 'Rain') {
+            this.icon = 'fa-tint';
+        }
+        else if (this.weather === 'Snow') {
+            this.icon = 'fa-snowflake-o';
+        }
+        else if (this.weather === 'Storm') {
+            this.icon = 'fa-bolt';
+        }
+        else if (this.weather === 'Clear') {
+            this.icon = 'fa-sun-o';
+        }
+        else {
+            this.icon = 'fa-cloud';
+        }
     }
     return Weather;
 }());

@@ -26,7 +26,7 @@ var WeatherDetailsComponent = (function () {
     WeatherDetailsComponent.prototype.getWeatherData = function (city) {
         var _this = this;
         // Stand in value until location entry added
-        this.http.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
+        this.http.get('http://api.openweathermap.org/data/2.5/forecast?id=' + city + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
             _this.forecast = new WeatherDetails_1.Forecast(data);
         });
     };

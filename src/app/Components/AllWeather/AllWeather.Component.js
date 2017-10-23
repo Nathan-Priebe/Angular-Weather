@@ -38,6 +38,22 @@ var AllWeatherComponent = (function () {
             _loop_1(i);
         }
     };
+    AllWeatherComponent.prototype.removeItem = function (arrayPos) {
+        var localCities = localStorage.getItem('myLocations');
+        var cities = localCities.split('|');
+        cities.splice(arrayPos, 1);
+        var outputString = '';
+        for (var i = 0; i < cities.length; i++) {
+            if (i === cities.length - 1) {
+                outputString = outputString + cities[i];
+            }
+            else {
+                outputString = outputString + cities[i] + '|';
+            }
+        }
+        localStorage.setItem('myLocations', outputString);
+        window.location.reload();
+    };
     return AllWeatherComponent;
 }());
 AllWeatherComponent = __decorate([
