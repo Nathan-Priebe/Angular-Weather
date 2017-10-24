@@ -1,3 +1,23 @@
+/* Bootstrap overides */
+
+.modal-backdrop.fade
+{
+  opacity: 0.5;
+}
+.modal-open .modal
+{
+  opacity: 1;
+}
+
+.modal
+{
+    padding-top: 200px;
+}
+
+.modal-header
+{
+    padding: 20px 15px 0px 15px;
+}
 
 /* Site wide style */
 body

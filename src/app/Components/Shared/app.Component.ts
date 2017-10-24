@@ -12,12 +12,8 @@ export class AppComponent {
 
     constructor(private modalService: NgbModal) {}
 
-    open(content: any) {
-        this.modalService.open(content).result.then((result) => {
-          this.closeResult = `Closed with: ${result}`;
-        }, (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        });
+    openModal(content: any) {
+        this.modalService.open(content);
       }
 
       private getDismissReason(reason: any): string {
