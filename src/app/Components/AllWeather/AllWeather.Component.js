@@ -12,20 +12,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 var Weather_1 = require("../../Models/Weather");
+var AddCityModal_Component_1 = require("../AddCityModal/AddCityModal.Component");
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var AllWeatherComponent = (function () {
     // Inject HttpClient into your component or service.
-    function AllWeatherComponent(http) {
+    function AllWeatherComponent(http, modalService) {
         this.http = http;
+        this.modalService = modalService;
         this.weather = [];
     }
     AllWeatherComponent.prototype.ngOnInit = function () {
         // Make the HTTP request:
         this.getWeatherData();
     };
+    AllWeatherComponent.prototype.openModal = function () {
+        this.modalService.open(AddCityModal_Component_1.NgbdModalContentComponent);
+    };
     AllWeatherComponent.prototype.getWeatherData = function () {
         var _this = this;
         // Stand in value until location entry added
-        localStorage.setItem('myLocations', 'Brisbane,Aus|Sydney,Aus');
         var localCities = localStorage.getItem('myLocations');
         var cities = localCities.split('|');
         var _loop_1 = function (i) {
@@ -60,7 +65,7 @@ AllWeatherComponent = __decorate([
     core_1.Component({
         templateUrl: 'AllWeather.html'
     }),
-    __metadata("design:paramtypes", [http_1.HttpClient])
+    __metadata("design:paramtypes", [http_1.HttpClient, ng_bootstrap_1.NgbModal])
 ], AllWeatherComponent);
 exports.AllWeatherComponent = AllWeatherComponent;
 //# sourceMappingURL=AllWeather.Component.js.map

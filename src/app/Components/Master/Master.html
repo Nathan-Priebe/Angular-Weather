@@ -1,0 +1,13 @@
+<div class='col-md-12 headerBar'>
+    <div class='container col-md-11' [routerLink]="['/']">
+        <h2><i class="fa fa-sun-o fa-1x" aria-hidden="true"></i> My Weather</h2>
+    </div>
+    <div class='col-md-1 addCity'>
+        <button (click)='openModal(content)' class="btn btn-outline-dark closeButton">Add City</button>
+    </div>
+</div>
+<div class='container'>
+   <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

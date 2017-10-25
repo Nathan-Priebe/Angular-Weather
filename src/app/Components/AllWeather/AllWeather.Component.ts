@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Weather } from '../../Models/Weather';
+import { NgbdModalContentComponent } from '../AddCityModal/AddCityModal.Component';
+
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     templateUrl: 'AllWeather.html'
@@ -10,16 +13,19 @@ export class AllWeatherComponent implements OnInit {
     weather: Weather[] = [];
 
     // Inject HttpClient into your component or service.
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private modalService: NgbModal) {}
 
     ngOnInit(): void {
       // Make the HTTP request:
       this.getWeatherData();
     }
 
+    openModal() {
+      this.modalService.open(NgbdModalContentComponent);
+    }
+
     getWeatherData(): void {
       // Stand in value until location entry added
-      localStorage.setItem('myLocations', 'Brisbane,Aus|Sydney,Aus');
       const localCities = localStorage.getItem('myLocations');
       const cities: string[] = localCities.split('|');
       for (let i = 0; i < cities.length; i++) {

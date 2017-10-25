@@ -4,15 +4,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 
-import { AppComponent } from './Components/Shared/app.Component';
+import { MasterComponent } from './Components/Master/master.Component';
 import { AllWeatherComponent } from './Components/AllWeather/AllWeather.Component';
 import { WeatherDetailsComponent } from './Components/WeatherDetails/WeatherDetails.Component';
+import { NgbdModalContentComponent } from './Components/AddCityModal/AddCityModal.Component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    MasterComponent,
     AllWeatherComponent,
-    WeatherDetailsComponent
+    WeatherDetailsComponent,
+    NgbdModalContentComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,9 @@ import { WeatherDetailsComponent } from './Components/WeatherDetails/WeatherDeta
     ])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [MasterComponent],
+  entryComponents: [
+    NgbdModalContentComponent
+  ]
 })
 export class AppModule { }

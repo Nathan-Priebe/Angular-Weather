@@ -41,5 +41,5 @@
 </div>
 
 <div *ngIf='weather.length <= 0' class='col-md-12 SharedWeatherCard'>
-    Add locations to view the weather, <a href>Click here to add locations</a>
+    Add locations to view the weather, <button (click)='openModal(content)'>Click here to add locations</button>
 </div>
