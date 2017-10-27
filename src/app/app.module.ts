@@ -7,14 +7,14 @@ import { RouterModule } from '@angular/router';
 import { MasterComponent } from './Components/Master/master.Component';
 import { AllWeatherComponent } from './Components/AllWeather/AllWeather.Component';
 import { WeatherDetailsComponent } from './Components/WeatherDetails/WeatherDetails.Component';
-import { NgbdModalContentComponent } from './Components/AddCityModal/AddCityModal.Component';
+import { AddCityModalComponent } from './Components/AddCityModal/AddCityModal.Component';
 
 @NgModule({
   declarations: [
     MasterComponent,
     AllWeatherComponent,
     WeatherDetailsComponent,
-    NgbdModalContentComponent
+    AddCityModalComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,7 @@ import { NgbdModalContentComponent } from './Components/AddCityModal/AddCityModa
   providers: [],
   bootstrap: [MasterComponent],
   entryComponents: [
-    NgbdModalContentComponent
+    AddCityModalComponent
   ]
 })
 export class AppModule { }

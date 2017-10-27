@@ -26,7 +26,7 @@ var AllWeatherComponent = (function () {
         this.getWeatherData();
     };
     AllWeatherComponent.prototype.openModal = function () {
-        this.modalService.open(AddCityModal_Component_1.NgbdModalContentComponent);
+        this.modalService.open(AddCityModal_Component_1.AddCityModalComponent);
     };
     AllWeatherComponent.prototype.getWeatherData = function () {
         var _this = this;

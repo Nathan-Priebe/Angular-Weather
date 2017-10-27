@@ -1,8 +1,8 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-/**
-* forecast model
+/*
+forecast model
 */
+Object.defineProperty(exports, "__esModule", { value: true });
 var Forecast = (function () {
     function Forecast(obj) {
         this.details = [];

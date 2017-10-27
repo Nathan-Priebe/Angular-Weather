@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Weather } from '../../Models/Weather';
-import { NgbdModalContentComponent } from '../AddCityModal/AddCityModal.Component';
+import { AddCityModalComponent } from '../AddCityModal/AddCityModal.Component';
 
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,7 +21,7 @@ export class AllWeatherComponent implements OnInit {
     }
 
     openModal() {
-      this.modalService.open(NgbdModalContentComponent);
+      this.modalService.open(AddCityModalComponent);
     }
 
     getWeatherData(): void {

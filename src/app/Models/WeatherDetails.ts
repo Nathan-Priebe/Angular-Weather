@@ -1,6 +1,7 @@
- /**
- * forecast model
+ /*
+ forecast model
  */
+
 export class Forecast {
     name: string;
     details: WeatherDetails[] = [];

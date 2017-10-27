@@ -1,6 +1,7 @@
  /**
- * weather model
+ weather model
  */
+
 export class Weather {
     name: string;
     id: number;

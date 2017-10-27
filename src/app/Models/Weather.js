@@ -1,8 +1,8 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
-* weather model
+weather model
 */
+Object.defineProperty(exports, "__esModule", { value: true });
 var Weather = (function () {
     function Weather(obj, arrayPosition) {
         this.temp = Math.round(obj['main']['temp']);

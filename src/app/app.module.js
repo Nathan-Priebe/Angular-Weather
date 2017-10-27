@@ -26,7 +26,7 @@ AppModule = __decorate([
             master_Component_1.MasterComponent,
             AllWeather_Component_1.AllWeatherComponent,
             WeatherDetails_Component_1.WeatherDetailsComponent,
-            AddCityModal_Component_1.NgbdModalContentComponent
+            AddCityModal_Component_1.AddCityModalComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,
@@ -42,7 +42,7 @@ AppModule = __decorate([
         providers: [],
         bootstrap: [master_Component_1.MasterComponent],
         entryComponents: [
-            AddCityModal_Component_1.NgbdModalContentComponent
+            AddCityModal_Component_1.AddCityModalComponent
         ]
     })
 ], AppModule);

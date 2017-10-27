@@ -11,22 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
-var NgbdModalContentComponent = (function () {
-    function NgbdModalContentComponent(modalService) {
+var AddCityModalComponent = (function () {
+    function AddCityModalComponent(modalService) {
         this.modalService = modalService;
     }
-    return NgbdModalContentComponent;
+    AddCityModalComponent.prototype.addCity = function (cityName, regionName) {
+        var cities = localStorage.getItem('myLocations');
+        cities = cities + '|' + cityName + ',' + regionName;
+        localStorage.setItem('myLocations', cities);
+        location.reload();
+    };
+    return AddCityModalComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], NgbdModalContentComponent.prototype, "name", void 0);
-NgbdModalContentComponent = __decorate([
+], AddCityModalComponent.prototype, "name", void 0);
+AddCityModalComponent = __decorate([
     core_1.Component({
-        selector: 'app-ngbd-modal-content',
-        template: "\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Hi there!</h4>\n      </div>\n      <div class=\"modal-body\">\n        <p>Hello, {{name}}!</p>\n      </div>\n    "
+        templateUrl: 'AddCityModal.html'
     }),
     __metadata("design:paramtypes", [ng_bootstrap_1.NgbModal])
-], NgbdModalContentComponent);
-exports.NgbdModalContentComponent = NgbdModalContentComponent;
+], AddCityModalComponent);
+exports.AddCityModalComponent = AddCityModalComponent;
 //# sourceMappingURL=AddCityModal.Component.js.map
