@@ -4,6 +4,7 @@ import { Weather } from '../../Models/Weather';
 import { AddCityModalComponent } from '../AddCityModal/AddCityModal.Component';
 
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { WebRequestService } from '../../Services/WebRequest.Service';
 
 @Component({
     templateUrl: 'AllWeather.html'
@@ -13,7 +14,7 @@ export class AllWeatherComponent implements OnInit {
     weather: Weather[] = [];
 
     // Inject HttpClient into your component or service.
-    constructor(private http: HttpClient, private modalService: NgbModal) {}
+    constructor(private http: HttpClient, private modalService: NgbModal, private _webRequest: WebRequestService) {}
 
     ngOnInit(): void {
       // Make the HTTP request:
@@ -24,17 +25,24 @@ export class AllWeatherComponent implements OnInit {
       this.modalService.open(AddCityModalComponent);
     }
 
-    getWeatherData(): void {
+    getWeatherData() {
       // Stand in value until location entry added
       const localCities = localStorage.getItem('myLocations');
       const cities: string[] = localCities.split('|');
+
       for (let i = 0; i < cities.length; i++) {
-        this.http.get(
-          'http://api.openweathermap.org/data/2.5/weather?q=' + cities[i] + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953'
-        ).subscribe(data => {
-          this.weather.push(new Weather(data, i));
-        });
+          const resp = this._webRequest.getData('weather?q=' + cities[i] + '&units=metric');
+          console.log(resp);
+          this.weather.push(new Weather(resp, i));
       }
+
+      // for (let i = 0; i < cities.length; i++) {
+      //   this.http.get(
+      //     'http://api.openweathermap.org/data/2.5/weather?q=' + cities[i] + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953'
+      //   ).subscribe(data => {
+      //     this.weather.push(new Weather(data, i));
+      //   });
+      // }
     }
 
     public removeItem(arrayPos: number): void {

@@ -16,10 +16,20 @@ var AddCityModalComponent = (function () {
         this.modalService = modalService;
     }
     AddCityModalComponent.prototype.addCity = function (cityName, regionName) {
-        var cities = localStorage.getItem('myLocations');
-        cities = cities + '|' + cityName + ',' + regionName;
-        localStorage.setItem('myLocations', cities);
-        location.reload();
+        if (cityName == null || cityName === '') {
+            alert('City is mandatory');
+        }
+        else {
+            var cities = localStorage.getItem('myLocations');
+            if (regionName == null || cityName === '') {
+                cities = cities + '|' + cityName;
+            }
+            else {
+                cities = cities + '|' + cityName + ',' + regionName;
+            }
+            localStorage.setItem('myLocations', cities);
+            location.reload();
+        }
     };
     return AddCityModalComponent;
 }());

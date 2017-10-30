@@ -15,6 +15,7 @@ var master_Component_1 = require("./Components/Master/master.Component");
 var AllWeather_Component_1 = require("./Components/AllWeather/AllWeather.Component");
 var WeatherDetails_Component_1 = require("./Components/WeatherDetails/WeatherDetails.Component");
 var AddCityModal_Component_1 = require("./Components/AddCityModal/AddCityModal.Component");
+var WebRequest_Service_1 = require("./Services/WebRequest.Service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,7 +27,8 @@ AppModule = __decorate([
             master_Component_1.MasterComponent,
             AllWeather_Component_1.AllWeatherComponent,
             WeatherDetails_Component_1.WeatherDetailsComponent,
-            AddCityModal_Component_1.AddCityModalComponent
+            AddCityModal_Component_1.AddCityModalComponent,
+            WebRequest_Service_1.WebRequestService
         ],
         imports: [
             platform_browser_1.BrowserModule,

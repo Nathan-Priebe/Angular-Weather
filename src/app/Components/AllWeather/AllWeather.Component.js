@@ -14,11 +14,13 @@ var http_1 = require("@angular/common/http");
 var Weather_1 = require("../../Models/Weather");
 var AddCityModal_Component_1 = require("../AddCityModal/AddCityModal.Component");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+var WebRequest_Service_1 = require("../../Services/WebRequest.Service");
 var AllWeatherComponent = (function () {
     // Inject HttpClient into your component or service.
-    function AllWeatherComponent(http, modalService) {
+    function AllWeatherComponent(http, modalService, _webRequest) {
         this.http = http;
         this.modalService = modalService;
+        this._webRequest = _webRequest;
         this.weather = [];
     }
     AllWeatherComponent.prototype.ngOnInit = function () {
@@ -29,19 +31,21 @@ var AllWeatherComponent = (function () {
         this.modalService.open(AddCityModal_Component_1.AddCityModalComponent);
     };
     AllWeatherComponent.prototype.getWeatherData = function () {
-        var _this = this;
         // Stand in value until location entry added
         var localCities = localStorage.getItem('myLocations');
         var cities = localCities.split('|');
-        var _loop_1 = function (i) {
-            this_1.http.get('http://api.openweathermap.org/data/2.5/weather?q=' + cities[i] + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
-                _this.weather.push(new Weather_1.Weather(data, i));
-            });
-        };
-        var this_1 = this;
         for (var i = 0; i < cities.length; i++) {
-            _loop_1(i);
+            var resp = this._webRequest.getData('weather?q=' + cities[i] + '&units=metric');
+            console.log(resp);
+            this.weather.push(new Weather_1.Weather(resp, i));
         }
+        // for (let i = 0; i < cities.length; i++) {
+        //   this.http.get(
+        //     'http://api.openweathermap.org/data/2.5/weather?q=' + cities[i] + '&units=metric&appid=ba58afbe01c96697166e22edcbe6a953'
+        //   ).subscribe(data => {
+        //     this.weather.push(new Weather(data, i));
+        //   });
+        // }
     };
     AllWeatherComponent.prototype.removeItem = function (arrayPos) {
         var localCities = localStorage.getItem('myLocations');
@@ -65,7 +69,7 @@ AllWeatherComponent = __decorate([
     core_1.Component({
         templateUrl: 'AllWeather.html'
     }),
-    __metadata("design:paramtypes", [http_1.HttpClient, ng_bootstrap_1.NgbModal])
+    __metadata("design:paramtypes", [http_1.HttpClient, ng_bootstrap_1.NgbModal, WebRequest_Service_1.WebRequestService])
 ], AllWeatherComponent);
 exports.AllWeatherComponent = AllWeatherComponent;
 //# sourceMappingURL=AllWeather.Component.js.map

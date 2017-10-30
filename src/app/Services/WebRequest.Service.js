@@ -10,23 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
-var AddCityModal_Component_1 = require("../AddCityModal/AddCityModal.Component");
-var MasterComponent = (function () {
-    function MasterComponent(modalService) {
-        this.modalService = modalService;
+var http_1 = require("@angular/common/http");
+var WebRequestService = (function () {
+    function WebRequestService(_http) {
+        this._http = _http;
     }
-    MasterComponent.prototype.openModal = function () {
-        this.modalService.open(AddCityModal_Component_1.AddCityModalComponent);
+    WebRequestService.prototype.getData = function (url) {
+        var _this = this;
+        this._http.get('http://api.openweathermap.org/data/2.5/' + url + '&appid=ba58afbe01c96697166e22edcbe6a953').subscribe(function (data) {
+            _this.returnData = data;
+        });
+        return this.returnData;
     };
-    return MasterComponent;
+    return WebRequestService;
 }());
-MasterComponent = __decorate([
-    core_1.Component({
-        selector: 'app-root',
-        templateUrl: 'Master.html',
-    }),
-    __metadata("design:paramtypes", [ng_bootstrap_1.NgbModal])
-], MasterComponent);
-exports.MasterComponent = MasterComponent;
-//# sourceMappingURL=master.Component.js.map
+WebRequestService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.HttpClient])
+], WebRequestService);
+exports.WebRequestService = WebRequestService;
+//# sourceMappingURL=WebRequest.Service.js.map
